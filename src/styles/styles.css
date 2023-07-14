@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1;0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,1;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+
+body {
+    background: #A770EF;
+    background: -webkit-linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF);
+    background: linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF);
+    font-family: 'Ysabeau Office', sans-serif;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+.burger-icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.display-none {
+    display: none;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.300);
+    box-shadow: 1px 20px 20px rgba(0, 0, 0, 0.500);
+    z-index: 10;
+}
+
+.navbar div:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 95%;
+}
+
+.navbar-button-notActive {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #A770EF;
+    margin: 1rem 0;
+    width: 100%;
+    height: 2rem;
+    font-weight: 600;
+}
+
+.navbar-button-notActive:hover {
+    background-color: #A770EF;
+    color: white;
+    border-radius: 3px;
+}
+
+.navbar-button-active {
+    background-color: #A770EF;
+    color: white;
+    outline: none;
+    border: none;
+    margin: 1rem 0;
+    width: 100%;
+    height: 2rem;
+    font-weight: 600;
+    border-radius: 3px;
+}
+
+.navbar i {
+    color: #A770EF;
+    font-size: 2rem;
+}
+
+
+
+/* .navbar i:hover {
+    color: #f4c4f3;
+    transition: 200ms;
+} */
+
+/* .whoPaysTheBill {
+    background: #f4c4f3;
+    background: -webkit-linear-gradient(to right, #fc67fa, #f4c4f3);
+    background: linear-gradient(to right, #fc67fa, #f4c4f3);
+
+}
+
+.splitTheBill {
+    background: #ef32d9;
+    background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);
+    background: linear-gradient(to right, #89fffd, #ef32d9);
+}
+
+.tipCalculator {
+    background: #BE93C5;
+    background: -webkit-linear-gradient(to right, #7BC6CC, #BE93C5);
+    background: linear-gradient(to right, #7BC6CC, #BE93C5);
+} */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.header-fixed {
+    /* position: absolute;
+    top: 10px;
+    right: 18px; */
+    width: 20.5rem;
+    height: 3rem;
+    z-index: 1;
+    /* border: 1px solid white; */
+    margin-bottom: 0;
+    /* background-color: rgba(255, 255, 255, 0.500); */
+    /* backdrop-filter: blur(100px); */
+    /* box-shadow: 1px 10px 20px rgba(0, 0, 0, 0.500); */
+}
+
+.header-fixed p {
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 800;
+    width: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.div-fixed {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90vw;
+    height: 100vh;
+    /* margin-top: 4rem; */
+}
+
+.whoPaysTheBill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.whoPaysTheBill-main-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 20.5rem;
+    height: 2.5rem;
+    background-color: white;
+    border-radius: 3px;
+    margin: auto;
+}
+
+.whoPaysTheBill input:nth-last-of-type(1) {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #A770EF;
+    font-weight: 600;
+    margin-left: 1rem;
+}
+
+.whoPaysTheBill button {
+    width: auto;
+    height: 100%;
+    margin-right: 1rem;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    outline: none;
+    color: #A770EF;
+    font-size: 1.3rem;
+}
+
+.whoPaysTheBill fieldset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: white;
+    color: #A770EF;
+    border: none;
+    border-radius: 3px;
+    min-height: 15rem;
+    font-size: 1.5rem;
+    width: 18.3rem;
+}
+
+.whoPaysTheBill fieldset>p {
+    padding: 0 1rem;
+    color: #A770EF;
+}
+
+.whoPaysTheBill-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    width: 20.5rem;
+}
+
+.whoPaysTheBill-default {
+    border: none;
+    outline: none;
+    height: 2.5rem;
+    width: 9.6rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: white;
+    border-radius: 3px 3px 3px 3px;
+    color: #A770EF;
+}
+
+.whoPaysTheBill-default:hover {
+    background-color: #A770EF;
+    color: white;
+}
+
+.whoPaysTheBill-active {
+    border: none;
+    outline: none;
+    height: 2.5rem;
+    width: 9.6rem;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #A770EF;
+    border-radius: 25px;
+    color: white;
+}
+
+.whoPaysTheBill-again {
+    background-color: #FDB99B;
+    border: none;
+    outline: none;
+    height: 2.5rem;
+    width: 9.6rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 3px;
+    color: white;
+}
+
+.whoPaysTheBill-instructions {
+    margin: 0 3rem;
+    font-weight: 400;
+    width: 20.5rem;
+}
