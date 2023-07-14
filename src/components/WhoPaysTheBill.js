@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { MyContext } from "../context";
 
-const WhoPaysTHeBill = () => {
+const WhoPaysTheBill = () => {
 
     const context = useContext(MyContext);
     const state = context.state;
@@ -85,4 +85,4 @@ const WhoPaysTHeBill = () => {
     )
 }
 
-export default WhoPaysTHeBill;
+export default WhoPaysTheBill;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WhoPaysTHeBill from '../components/WhoPaysTheBill';
+import WhoPaysTheBill from '../components/WhoPaysTheBill';
 import TipCalculator from '../components/TipCalculator';
 import SplitTheBil from '../components/SplitTheBill';
 
@@ -152,7 +152,7 @@ class MyProvider extends Component {
         const buttonName = this.state.buttonName;
 
         if (buttonName === "Who Pays The Bill") {
-            return <WhoPaysTHeBill />
+            return <WhoPaysTheBill />
         }
         if (buttonName === "Tip Calculator") {
             return <TipCalculator />
