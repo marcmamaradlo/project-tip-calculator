@@ -9,8 +9,9 @@ class MyProvider extends Component {
 
     state = {
         navButtons: ['Who Pays The Bill', 'Tip Calculator', 'Split The Bill'],
-        buttonName: 'Who Pays The Bill',
+        buttonName: 'Split The Bill',
         burgerActive: false,
+
         //Who Pays The Bill//
         WPTBAddName: '',
         WPTBArray: [],
@@ -18,16 +19,85 @@ class MyProvider extends Component {
         WPTBStart: false,
         WPTBReset: false,
         //Who Pays The Bill//
+
+        //Tip Calculator//
+        tipPercent: '',
+        tipBillAmount: '',
+        tipAmount: '',
+        //Tip Calculator//
+
+        //Spit The Bill//
+        STBParticipants: 0,
+        STBBillAmount: '',
+        STBFinalAmount: '',
+        //Spit The Bill//
     }
 
     // Split The Bill --Start-- //
+
+    handleSTBSplitButton = () => {
+        const STBParticipants = this.state.STBParticipants
+        const STBBillAmount = this.state.STBBillAmount;
+        let finalAmount = (STBBillAmount / STBParticipants);
+        this.setState({ STBFinalAmount: finalAmount })
+    }
+
+    handleSTBResetButton = () => {
+        this.setState({
+            STBParticipants: 0,
+            STBBillAmount: '',
+            STBFinalAmount: '',
+        })
+    }
+
+    handleSTBBillAmount = (e) => {
+        this.setState({ STBBillAmount: e.target.value })
+    }
+
+    handleAddButton = () => {
+        this.setState({ STBParticipants: this.state.STBParticipants + 1 });
+    }
+
+    handleMinusButton = () => {
+        if (this.state.STBParticipants <= 0) {
+            return null
+        }
+        else {
+            return this.setState({ STBParticipants: this.state.STBParticipants - 1 });
+        }
+
+    }
     // Split The Bill --End-- //
 
     // Tip Calculator --Start-- //
+    handleTipInputOnClick = (e) => {
+        this.setState({ [e.target.name]: '', })
+    }
+
+    handleTipStartButton = () => {
+        const tipPercent = this.state.tipPercent;
+        const tipBillAmount = this.state.tipBillAmount;
+        this.setState({ tipAmount: (tipPercent * tipBillAmount) / 100 })
+    }
+
+    handleTipResetButton = () => {
+        this.setState({
+            tipPercent: '',
+            tipBillAmount: '',
+            tipAmount: '',
+        })
+    }
+
+    handleTipPercent = (e) => {
+        this.setState({ tipPercent: e.target.value })
+    }
+
+    handleTipBillAmount = (e) => {
+        this.setState({ tipBillAmount: e.target.value })
+    }
     // Tip Calculator --End-- //
 
     // Who Pays The Bill --Start-- //
-
     handleWPTBAgain = () => {
         const WPTBArrayHistory = this.state.WPTBArrayHistory;
         const random = Math.floor(Math.random() * WPTBArrayHistory.length);
@@ -168,14 +238,20 @@ class MyProvider extends Component {
 
     render() {
 
-        console.table(this.state);
-
         const { value, buttonIndex, buttonName, WPTBStart, } = this.state
         const { state,
             handleNavButtons, handleBurgerIcon, handleShowNavbar,
-            handleShowComponents, showNavButtons, handleWPTBAddName,
-            handleWPTBSubmit, handleWPTBFieldSet, handleWPTBResetButton,
-            handleWPTBStart, handleInputOnClick, handleWPTBAgain
+            handleShowComponents, showNavButtons,
+
+            handleWPTBAddName, handleWPTBSubmit, handleWPTBFieldSet,
+            handleWPTBResetButton, handleWPTBStart, handleInputOnClick,
+            handleWPTBAgain,
+
+            handleTipPercent, handleTipBillAmount, handleTipResetButton,
+            handleTipStartButton, handleTipInputOnClick,
+
+            handleAddButton, handleMinusButton, handleSTBBillAmount,
+            handleSTBResetButton, handleSTBSplitButton,
         } = this;
 
         return (
@@ -183,9 +259,17 @@ class MyProvider extends Component {
                 value={{
                     state, value, buttonIndex, buttonName, WPTBStart,
                     handleNavButtons, handleBurgerIcon, handleShowNavbar,
-                    handleShowComponents, showNavButtons, handleWPTBAddName,
-                    handleWPTBSubmit, handleWPTBFieldSet, handleWPTBResetButton,
-                    handleWPTBStart, handleInputOnClick, handleWPTBAgain
+                    handleShowComponents, showNavButtons,
+
+                    handleWPTBAddName, handleWPTBSubmit, handleWPTBFieldSet,
+                    handleWPTBResetButton, handleWPTBStart, handleInputOnClick,
+                    handleWPTBAgain,
+
+                    handleTipPercent, handleTipBillAmount, handleTipResetButton,
+                    handleTipStartButton, handleTipInputOnClick,
+
+                    handleAddButton, handleMinusButton, handleSTBBillAmount,
+                    handleSTBResetButton, handleSTBSplitButton,
                 }}>
                 {this.props.children}
             </MyContext.Provider>
